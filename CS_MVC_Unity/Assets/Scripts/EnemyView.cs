@@ -21,7 +21,7 @@ public interface IEnemyView
 public class EnemyView : MonoBehaviour, IEnemyView 
 {
 	// Dispatched wen the enemy is clicked
-	public event EventHandler<EnemyClickedEventArgs> OnCLicked = (sender, e) = > {};
+	public event EventHandler<EnemyClickedEventArgs>OnClicked = (sender, e) => {};
 
 	// Set the enemy's position
 	public Vector3 Position { set { transform.position = value; } }
@@ -39,7 +39,7 @@ public class EnemyView : MonoBehaviour, IEnemyView
 			{
 				// Dispatche OnClicked event
 				var eventArgs = new EnemyClickedEventArgs();
-				OnCLicked(this, eventArgs);
+				OnClicked(this, eventArgs);
 			}
 		}
 	}

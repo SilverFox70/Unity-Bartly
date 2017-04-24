@@ -1,17 +1,20 @@
-﻿// Interface for the model factory
+﻿using UnityEngine;
+using System.Collections;
+
+// Interface for the model factory
 public interface IEnemyModelFactory
 {
 	// Get the created model
-	IEnemyModel model { get; }
+	IEnemyModel Model { get; }
 }
 
 // Implementation of the model factory
-public class EnemeyModelFactory : IEnemyModelFactory
+public class EnemyModelFactory : IEnemyModelFactory
 {
 	public IEnemyModel Model { get; private set; }
 
 	// create the model
-	public IEnemyModelFactory()
+	public EnemyModelFactory()
 	{
 		Model = new EnemyModel();
 	}
@@ -29,7 +32,7 @@ public class EnemyViewFactory : IEnemyViewFactory
 	public IEnemyView View { get; private set; }
 
 	// Create the view
-	public IEnemyViewFactory()
+	public EnemyViewFactory()
 	{
 		var prefab = Resources.Load<GameObject>("Enemy");
 		var instance = UnityEngine.Object.Instantiate(prefab);

@@ -5,7 +5,7 @@ public class MainScript : MonoBehaviour {
 	void Awake()
 	{
 		// create model
-		var modelFactory = new EnemeyModelFactory();
+		var modelFactory = new EnemyModelFactory();
 		var model = modelFactory.Model;
 
 		// set some initial state
