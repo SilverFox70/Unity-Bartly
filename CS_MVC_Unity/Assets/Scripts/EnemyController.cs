@@ -40,6 +40,7 @@ public class EnemyController : IEnemyController
 	private void HandlePositionChanged(object sender, EnemyPositionChangedEventArgs e)
 	{
 		// Update the view with the new position
+		Debug.Log("event args: " + e.message);
 		SyncPosition();
 	}
 

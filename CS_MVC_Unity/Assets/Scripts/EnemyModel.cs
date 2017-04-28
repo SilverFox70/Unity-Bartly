@@ -5,6 +5,11 @@ using UnityEngine;
 // Dispatched when the enemy's position changes
 public class EnemyPositionChangedEventArgs : EventArgs
 {
+	public string message = "nothing";
+
+	public EnemyPositionChangedEventArgs(){
+		message = "Hello from args";
+	}
 }
 
 // Interface for the model
