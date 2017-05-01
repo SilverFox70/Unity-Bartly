@@ -16,7 +16,7 @@ public interface IEnemyView
 	// Set the enemy's position
 	Vector3 Position {set; }
 }
-	
+
 // Implementation of the enemy view
 public class EnemyView : MonoBehaviour, IEnemyView 
 {
