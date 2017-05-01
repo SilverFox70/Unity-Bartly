@@ -6,6 +6,7 @@ using UnityEngine;
 public class EventManager : MonoBehaviour 
 {
 	public Enemy numberOne;
+	public Enemy numberTwo;
 	public InputManager inputManager;
 	public EnemyMovement enemyMovement;
 
@@ -32,6 +33,7 @@ public class EventManager : MonoBehaviour
 	private void OnDisable()
 	{
 		// UnRegister your event here...
+		inputManager.OnMouseClicked -= HandleMouseClicked;
 	}
 
 	// Methods to route events to Models goes below here...
@@ -40,7 +42,7 @@ public class EventManager : MonoBehaviour
 		RaycastHit hit;
 		if(Physics.Raycast(ray, out hit)){
 			Vector3 newPos = new Vector3(-1, 0, 0);
-			GameObject enemy = numberOne.gameObject;
+			GameObject enemy = hit.collider.gameObject;
 			enemyMovement.MoveEnemy(enemy, newPos);
 		}
 	}
