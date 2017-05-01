@@ -5,6 +5,9 @@ using UnityEngine;
 // Use this singleton script to globally manage your game
 public class GameManager : MonoBehaviour 
 {
+	public int NumberOfEnemies = 2;
+	public Vector3 EnemySpawnOffset = new Vector3 (0, -1, 0);
+	public Vector3 instanceOffset = new Vector3(0, 0, 0);
 	public static GameManager instance = null;	
 
 	// Awake is always called before any Start functions
@@ -33,7 +36,12 @@ public class GameManager : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
-
+		for (int i = 0; i < NumberOfEnemies; i++) {
+			var prefab = Resources.Load<GameObject> ("EnemyObject");
+			var instance = Object.Instantiate (prefab);
+			instance.transform.position += instanceOffset;
+			instanceOffset += EnemySpawnOffset;
+		}
 	}
 
 	// Update is called once per frame
