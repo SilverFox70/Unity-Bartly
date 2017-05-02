@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	// Use this for initialization
+	// Spawn Enemies here...
 	void Start () {
 		for (int i = 0; i < NumberOfEnemies; i++) {
 			var prefab = Resources.Load<GameObject> ("EnemyObject");
