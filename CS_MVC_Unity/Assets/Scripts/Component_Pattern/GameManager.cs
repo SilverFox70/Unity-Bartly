@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Use this singleton script to globally manage your game
+// Use this 'singleton' script to globally manage your game
 public class GameManager : MonoBehaviour 
 {
 	public int NumberOfEnemies = 2;
