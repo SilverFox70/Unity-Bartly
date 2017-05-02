@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour 
 {
-	public Enemy numberOne;
-	public Enemy numberTwo;
 	public InputManager inputManager;
 	public EnemyMovement enemyMovement;
 
