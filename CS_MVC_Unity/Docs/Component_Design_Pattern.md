@@ -13,5 +13,19 @@ This script will become the hub through which all events pass. Depending on the 
 ### GameManager
 A "Singleton" is often employed for this script since it will manage the overall state of our game across multiple scenes. Think of it as the global resource and manager of the entire experience.
 
+### PlayerManager
+Here we will hold the state of the player (their health status, for example) and you can approach this as being similar to the "model" of our player in some ways.
+
+### PlayerMovementManager
+Define the abstract functions that govern the ways in which the player can move through out the world. Actual rates of speed and other mutable parameters should be passed into this script to allow for easy manipulation of parameters.
+
+### EnemyManager
+Each instance of an Enemy could have this component attached to it to track an instances health and other stats.
+
+### EnemyMovementManager
+Much like the PlayerMovementManager this simply provides functions for moving the enemy around the game. Having separate Movement Managers for players and enemies allows you to implement "AI" movement for enemies for more exciting gameplay.
+
+
+
 
 
