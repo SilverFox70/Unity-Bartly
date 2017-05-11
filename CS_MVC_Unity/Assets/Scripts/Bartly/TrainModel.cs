@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TrainModel : MonoBehaviour {
 
-	public TrainMovement trainMovement;
+	public Vector3 startPos;
 
 	// Use this for initialization
 	void Start () {
-		
+		startPos = transform.position;
 	}
 	
 	// Update is called once per frame

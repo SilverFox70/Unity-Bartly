@@ -52,9 +52,12 @@ public class EventManagerBartly : MonoBehaviour
 	private void HandleKeyDown_1()
 	{
 		Debug.Log ("EventManagerBartly[HandleKeyDown_1]");
-		GameObject train = GameObject.FindGameObjectWithTag ("train_1");
+		var prefab = Resources.Load<GameObject> ("Train");
+		var train = UnityEngine.Object.Instantiate (prefab);
+		train.transform.position = new Vector3 (-3f, 0f, 0f);
+		train.name = "Train_1";
 		Vector3 trainPos = train.transform.position;
-		Vector3 newPos = trainPos + new Vector3 (6, 0, 0);
+		Vector3 newPos = trainPos + new Vector3 (6f, 0f, 0f);
 		TrainMovement trainMovement = train.GetComponent<TrainMovement> ();
 		trainMovement.MoveTrain (train, trainPos, newPos, 3);
 	}
@@ -62,9 +65,12 @@ public class EventManagerBartly : MonoBehaviour
 	private void HandleKeyDown_2()
 	{
 		Debug.Log ("EventManagerBartly[HandleKeyDown_2]");
-		GameObject train = GameObject.FindGameObjectWithTag ("train_2");
+		var prefab = Resources.Load<GameObject> ("Train");
+		var train = UnityEngine.Object.Instantiate (prefab);
+		train.transform.position = new Vector3 (-3f, -1.5f, 0f);
+		train.name = "Train_2";
 		Vector3 trainPos = train.transform.position;
-		Vector3 newPos = trainPos + new Vector3 (3, 0, 0);
+		Vector3 newPos = trainPos + new Vector3 (3f, 0f, 0f);
 		TrainMovement trainMovement = train.GetComponent<TrainMovement> ();
 		trainMovement.MoveTrain (train, trainPos, newPos, 3);
 	}
