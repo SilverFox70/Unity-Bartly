@@ -8,11 +8,12 @@ public class TrainSchedule : MonoBehaviour {
 	public List<TrainStop> trainStops;
 	public int routeNumber;
 	public string routeName;
+	public int trainId;
+	public int trainIdx;
 
-	public TrainSchedule(int r_number, string r_name)
+	void Awake()
 	{
-		routeNumber = r_number;
-		routeName = routeName;
+		trainStops = new List<TrainStop> ();
 	}
 
 	// Use this for initialization

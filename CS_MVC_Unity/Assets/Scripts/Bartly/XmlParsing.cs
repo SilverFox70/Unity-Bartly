@@ -54,23 +54,34 @@ public class XmlParsing : MonoBehaviour {
 
 	public void TrainScheduleFromXml(XmlElement root)
 	{
-		List<DateTime> timeList = new List<DateTime> ();
 		XmlNodeList routeNode = root.GetElementsByTagName ("route");
+
 		foreach (XmlNode el in routeNode[0].ChildNodes) 
 		{
-			Debug.Log ("el: " + el.Name);
+			GameObject Train = new GameObject ();
+			Train.AddComponent<TrainSchedule> ();
+			Train.name = "Train" + el.Attributes ["trainId"].Value;
+			TrainSchedule trainSchedule = Train.GetComponent<TrainSchedule>();
+			trainSchedule.routeName = "PITT-SFIA";
+			trainSchedule.routeNumber = 1;
+			trainSchedule.trainId = int.Parse(el.Attributes ["trainId"].Value);
+			trainSchedule.trainIdx = int.Parse(el.Attributes ["trainIdx"].Value);
+			Debug.Log ("trainId: " + trainSchedule.trainId + " \ttrainIdx: " + trainSchedule.trainIdx);
 			XmlNodeList trainStops = el.ChildNodes;
 			foreach (XmlNode Tstop in trainStops) 
 			{
 				if (Tstop.Attributes ["origTime"] != null) 
 				{
 					string stringTime = Tstop.Attributes ["origTime"].Value;
-					Debug.Log("station: " + Tstop.Attributes["station"].Value + "\t time: " + stringTime);
-					timeList.Add (DateTime.ParseExact(stringTime, "h:mm tt", System.Globalization.CultureInfo.InvariantCulture));
+					string stationName = Tstop.Attributes ["station"].Value;
+					Debug.Log("station: " + stationName + "\t time: " + stringTime);
+					DateTime depTime = DateTime.ParseExact (stringTime, "h:mm tt", System.Globalization.CultureInfo.InvariantCulture);
+					TrainStop trainStop = new TrainStop (stationName, depTime);
+					trainSchedule.AddStop (trainStop);
 
 				}
 			}
-			Debug.Log ("delta: " + timeList [1].Subtract(timeList[0]).TotalMinutes);
+			Debug.Log ("trainschedule stops: " + trainSchedule.trainStops.ToString ());
 		}
 	}
 }
