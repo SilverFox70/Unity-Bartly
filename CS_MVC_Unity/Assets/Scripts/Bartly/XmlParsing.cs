@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class XmlParsing : MonoBehaviour {
 
+	public event Action OnScheduleParsed;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -83,5 +85,7 @@ public class XmlParsing : MonoBehaviour {
 			}
 			Debug.Log ("trainschedule stops: " + trainSchedule.trainStops.ToString ());
 		}
+		if (OnScheduleParsed != null)
+			OnScheduleParsed ();
 	}
 }

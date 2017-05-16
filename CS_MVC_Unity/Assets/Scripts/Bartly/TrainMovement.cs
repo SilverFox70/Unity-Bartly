@@ -15,11 +15,11 @@ public class TrainMovement : MonoBehaviour {
 		
 	}
 
-	public void MoveTrain(GameObject train, Vector3 posA, Vector3 posB, int dtime)
+	public void MoveTrain(GameObject train, Vector3 posA, Vector3 posB, double dtime)
 	{
 		float startTime = Time.time;
 		float dist = Vector3.Distance (posA, posB);
-		speed = dist / dtime;
+		speed = dist / (float)dtime;
 		Debug.Log ("TrainMovement[MoveTrain] start time: " + startTime);
 		Debug.Log ("Train " + train.tag + " Speed : " + speed);
 		StartCoroutine(MoveFromAtoB(train, posA, posB, dist, startTime));

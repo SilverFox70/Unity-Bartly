@@ -8,6 +8,7 @@ public class EventManagerBartly : MonoBehaviour
 	public WebRequestHandler wrh;
 	public UserInputManager userInputManager;
 	public XmlParsing xmlParser;
+	public TrainManager trainManager;
 //	public TrainMovement trainMovement;
 
 	// Awake this instance
@@ -29,6 +30,7 @@ public class EventManagerBartly : MonoBehaviour
 		userInputManager.OnKeyDown_R += HandleKeyDown_R;
 		userInputManager.OnKeyDown_1 += HandleKeyDown_1;
 		userInputManager.OnKeyDown_2 += HandleKeyDown_2;
+		xmlParser.OnScheduleParsed += HandleScheduleParsed;
 		wrh.OnLoadedEvent += HandleLoadedEvent;
 	}
 
@@ -38,7 +40,8 @@ public class EventManagerBartly : MonoBehaviour
 		// UnRegister your event here...
 		userInputManager.OnKeyDown_R -= HandleKeyDown_R;
 		userInputManager.OnKeyDown_1 -= HandleKeyDown_1;
-		userInputManager.OnKeyDown_2 += HandleKeyDown_2;
+		userInputManager.OnKeyDown_2 -= HandleKeyDown_2;
+		xmlParser.OnScheduleParsed -= HandleScheduleParsed;
 		wrh.OnLoadedEvent -= HandleLoadedEvent;
 	}
 
@@ -80,6 +83,12 @@ public class EventManagerBartly : MonoBehaviour
 		string data = wrh.dataString;
 		Debug.Log ("EventManagerBartly[HandleLoadedEvent] data:\n" + data);
 		xmlParser.parseXml (data);
+	}
+
+	private void HandleScheduleParsed()
+	{
+		// Get the train manager running
+		trainManager.ScheduleReady();
 	}
 
 }
