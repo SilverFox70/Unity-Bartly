@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrainMovement : MonoBehaviour {
 
 	public float speed = 1.0f;
+	public bool moving = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -22,6 +23,7 @@ public class TrainMovement : MonoBehaviour {
 		speed = dist / (float)dtime;
 		Debug.Log ("TrainMovement[MoveTrain] start time: " + startTime);
 		Debug.Log ("Train " + train.tag + " Speed : " + speed);
+		moving = true;
 		StartCoroutine(MoveFromAtoB(train, posA, posB, dist, startTime));
 	}
 
@@ -35,6 +37,7 @@ public class TrainMovement : MonoBehaviour {
 			train.transform.position = Vector3.Lerp (posA, posB, fracJourney);
 			yield return null;
 		}
-		Debug.Log ("Train " + train.tag + " end time: " + Time.time);	
+		Debug.Log ("Train " + train.tag + " end time: " + Time.time);
+		moving = false;
 	}
 }

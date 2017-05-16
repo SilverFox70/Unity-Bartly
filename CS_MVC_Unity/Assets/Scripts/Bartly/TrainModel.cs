@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class TrainModel : MonoBehaviour 
 {
-	public int trainId;
-	public int trainIdx;
 	public Vector3 startPos;
 
 	// Use this for initialization
