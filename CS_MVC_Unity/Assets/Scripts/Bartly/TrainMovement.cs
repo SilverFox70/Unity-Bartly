@@ -2,22 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrainMovement : MonoBehaviour {
-
+public class TrainMovement : MonoBehaviour 
+{
+	public delegate void OnMovementComplete(GameObject go);
 	public float speed = 1.0f;
 	public bool moving = false;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-	public void MoveTrain(GameObject train, Vector3 posA, Vector3 posB, double dtime)
+	private OnMovementComplete CallBackFunction;
+
+	public void MoveTrain(GameObject train, Vector3 posA, Vector3 posB, double dtime, OnMovementComplete NewCallBackFunction)
 	{
+		CallBackFunction = NewCallBackFunction;
 		float startTime = Time.time;
 		float dist = Vector3.Distance (posA, posB);
 		speed = dist / (float)dtime;
@@ -39,5 +34,6 @@ public class TrainMovement : MonoBehaviour {
 		}
 		Debug.Log ("Train " + train.tag + " end time: " + Time.time);
 		moving = false;
+		CallBackFunction (train);
 	}
 }

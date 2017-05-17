@@ -62,7 +62,7 @@ public class EventManagerBartly : MonoBehaviour
 		Vector3 trainPos = train.transform.position;
 		Vector3 newPos = trainPos + new Vector3 (6f, 0f, 0f);
 		TrainMovement trainMovement = train.GetComponent<TrainMovement> ();
-		trainMovement.MoveTrain (train, trainPos, newPos, 3);
+//		trainMovement.MoveTrain (train, trainPos, newPos, 3);
 	}
 
 	private void HandleKeyDown_2()
@@ -75,7 +75,7 @@ public class EventManagerBartly : MonoBehaviour
 		Vector3 trainPos = train.transform.position;
 		Vector3 newPos = trainPos + new Vector3 (3f, 0f, 0f);
 		TrainMovement trainMovement = train.GetComponent<TrainMovement> ();
-		trainMovement.MoveTrain (train, trainPos, newPos, 3);
+//		trainMovement.MoveTrain (train, trainPos, newPos, 3);
 	}
 
 	private void HandleLoadedEvent()
