@@ -20,7 +20,7 @@ Here we will hold the state of the player (their health status, for example) and
 Define the abstract functions that govern the ways in which the player can move through out the world. Actual rates of speed and other mutable parameters should be passed into this script to allow for easy manipulation of parameters.
 
 ### EnemyManager
-Each instance of an Enemy could have this component attached to it to track an instances health and other stats.
+Each instance of an Enemy could have this component attached to it to track health and other stats.
 
 ### EnemyMovementManager
 Much like the PlayerMovementManager this simply provides functions for moving the enemy around the game. Having separate Movement Managers for players and enemies allows you to implement "AI" movement for enemies for more exciting gameplay.

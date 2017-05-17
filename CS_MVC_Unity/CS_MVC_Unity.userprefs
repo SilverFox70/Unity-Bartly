@@ -1,12 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnemyView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Bartly/XmlParsing.cs">
     <Files>
-      <File FileName="Assets/Scripts/EnemyController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/EnemyView.cs" Line="42" Column="9" />
-      <File FileName="Assets/Scripts/EnemyModel.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/EnemyFactory.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MainScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Bartly/BartSceneManager.cs" Line="12" Column="14" />
+      <File FileName="Assets/Scripts/Bartly/TrainModel.cs" Line="6" Column="2" />
+      <File FileName="Assets/Scripts/Bartly/UserInputManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Bartly/TrainSchedule.cs" Line="12" Column="22" />
+      <File FileName="Assets/Scripts/Bartly/TrainStop.cs" Line="7" Column="1" />
+      <File FileName="Assets/Scripts/Bartly/TrainManager.cs" Line="25" Column="28" />
+      <File FileName="Assets/Scripts/Bartly/EventManagerBartly.cs" Line="91" Column="32" NotebookId="1" />
+      <File FileName="Assets/Scripts/Bartly/TrainMovement.cs" Line="22" Column="25" NotebookId="1" />
+      <File FileName="Assets/Scripts/Bartly/XmlParsing.cs" Line="89" Column="24" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

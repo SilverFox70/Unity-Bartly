@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class EventManager : MonoBehaviour 
 {
@@ -42,6 +43,11 @@ public class EventManager : MonoBehaviour
 			Vector3 newPos = new Vector3(-1, 0, 0);
 			GameObject enemy = hit.collider.gameObject;
 			enemyMovement.MoveEnemy(enemy, newPos);
+			Analytics.CustomEvent ("EnemyMoved", new Dictionary<string, object> 
+			{
+				{ "enemy", enemy.name },
+					{ "new position", enemy.transform.position + newPos }
+			});
 		}
 	}
 
